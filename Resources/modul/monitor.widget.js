@@ -12,8 +12,13 @@ exports.create = function() {
 		bottom : 0
 	}));
 	var stopdisplays = [];
+	Ti.App.addEventListener('app:hidenextstops', function(_e) {
+		for (var i = 0; i < 7; i++)
+			stopdisplays[i].setText('');
+	});
 	Ti.App.addEventListener('app:shownextstops', function(_e) {
-		if (_e) {console.log(_e);
+		if (_e) {
+			console.log(_e);
 			var stops = _e.stops;
 			for (var i = 0; i < 7; i++) {
 				stopdisplays[i].setText((stops && stops[i] && stops[i].name ) ? stops[i].name : '');

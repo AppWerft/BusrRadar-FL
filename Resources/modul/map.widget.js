@@ -44,11 +44,10 @@ exports.create = function() {
 		}
 	});
 	self.addEventListener('click', function(_e) {
-		self.add(new alertM);
-		if (_e.clicksource == 'pin' && _e.annotation.layer && _e.annotation.busdata) {
-			Ti.App.fireEvent('app:shownextstops');
+		if (_e.clicksource === 'pin' &&  _e.annotation.busdata) {
+			console.log('BUS clicked');
+			Ti.App.fireEvent('app:hidenextstops');
 			Ti.App.Model.setCurrentX(_e.annotation.busdata);
-
 		} else {
 			Ti.App.Model.setCurrentX(null);
 		}
