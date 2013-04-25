@@ -32,6 +32,7 @@ exports.create = function() {
 	});
 	fl.add(clock);
 	self.moveCloud = function() {
+		console.log('START Wolkenzug');
 		self.cloud.animate({
 			left : -2100 + 320,
 			duration : 160000,
@@ -42,7 +43,7 @@ exports.create = function() {
 	self.addEventListener('focus', function() {
 		console.log('FOCUS')
 	})
-	self.moveCloud();
+	
 	setInterval(function() {
 		clock.setText(moment().format('HH:mm:ss') + ' Uhr');
 	}, 1000);

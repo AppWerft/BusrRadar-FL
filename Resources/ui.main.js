@@ -7,10 +7,13 @@ exports.create = function() {
 	mapwindow.add(mapwindow.map);
 	var masterwindow = Ti.UI.createWindow({
 	});
-	masterwindow.add(require('modul/clouds').create());
+	var clouds = require('modul/clouds').create();
+
 	masterwindow.add(require('modul/monitor').create());
 	///  Main frame:
 	if (Ti.Platform.osname === 'ipad') {
+		masterwindow.add(clouds);
+		clouds.moveCloud();
 		var splitwindow = Ti.UI.iPad.createSplitWindow({
 			detailView : mapwindow,
 			masterView : masterwindow,
@@ -30,11 +33,14 @@ exports.create = function() {
 		});
 	} else {
 		masterwindow.addEventListener('click', function() {
+			masterwindow.remove(clouds);
 			masterwindow.close({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_DOWN
 			});
 		})
 		Ti.App.addEventListener('app:showmonitor', function(_e) {
+			masterwindow.add(clouds);
+			clouds.moveCloud();
 			masterwindow.open({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_UP
 			});
