@@ -45,7 +45,7 @@ exports.create = function() {
 	});
 	self.addEventListener('click', function(_e) {
 		self.add(new alertM);
-		if (_e.clicksource == 'pin') {
+		if (_e.clicksource == 'pin' && _e.annotation.layer && _e.annotation.busdata) {
 			Ti.App.fireEvent('app:shownextstops');
 			Ti.App.Model.setCurrentX(_e.annotation.busdata);
 
@@ -58,7 +58,7 @@ exports.create = function() {
 			self.removeAnnotation(busmarkers[i]);
 	});
 	self.add(require('modul/eieruhr.widget').create());
-	
+
 	self.add(new alertM);
 	return self;
 }

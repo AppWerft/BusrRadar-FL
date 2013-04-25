@@ -8,11 +8,11 @@ exports.create = function() {
 	var masterwindow = Ti.UI.createWindow({
 	});
 	var clouds = require('modul/clouds').create();
-
-	masterwindow.add(require('modul/monitor').create());
+	var monitor = require('modul/monitor').create();
 	///  Main frame:
 	if (Ti.Platform.osname === 'ipad') {
 		masterwindow.add(clouds);
+		masterwindow.add(monitor);
 		clouds.moveCloud();
 		var splitwindow = Ti.UI.iPad.createSplitWindow({
 			detailView : mapwindow,
@@ -34,12 +34,14 @@ exports.create = function() {
 	} else {
 		masterwindow.addEventListener('click', function() {
 			masterwindow.remove(clouds);
+			masterwindow.remove(monitor);
 			masterwindow.close({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_DOWN
 			});
 		})
 		Ti.App.addEventListener('app:showmonitor', function(_e) {
 			masterwindow.add(clouds);
+			masterwindow.remove(monitor);
 			clouds.moveCloud();
 			masterwindow.open({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_UP
