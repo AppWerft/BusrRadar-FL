@@ -1,7 +1,6 @@
 exports.create = function() {
 	var self = Ti.UI.createView({
 		backgroundColor : '#000',
-		opacity : 0
 	});
 	var gaugeM = require('/modul/gauge.widget');
 	var tacho = new gaugeM;
@@ -18,7 +17,6 @@ exports.create = function() {
 	});
 	Ti.App.addEventListener('app:shownextstops', function(_e) {
 		if (_e) {
-			console.log(_e);
 			var stops = _e.stops;
 			for (var i = 0; i < 7; i++) {
 				stopdisplays[i].setText((stops && stops[i] && stops[i].name ) ? stops[i].name : '');
@@ -45,19 +43,5 @@ exports.create = function() {
 		});
 		self.add(stopdisplays[i])
 	}
-	Ti.App.addEventListener('app:showmonitor', function(_e) {
-		if (_e.visible) {
-			self.animate({
-				opacity : 1,
-				duration : 800
-			});
-
-		} else {
-			self.animate({
-				opacity : 0,
-				duration : 800
-			});
-		}
-	});
 	return self;
 }

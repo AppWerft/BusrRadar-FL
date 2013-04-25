@@ -8,10 +8,11 @@ exports.set = function(map, busmarkers, busroutes, bus) {
 				image : image,
 				subtitle : bus.friendlyName,
 				leftButton : '/images/' + bus.line + '.jpg',
+				rightButton : '/images/tacho.png',
 				title : Ti.App.Model.getTitle(bus.ZielShort),
 				busdata : bus
 			});
-			
+
 			map.addAnnotation(busmarker);
 			busmarkers[bus.vehicleId] = busmarker;
 		});
