@@ -3,7 +3,7 @@ exports.create = function() {
 		bottom : 0,
 		width : 180,
 		height : 100,
-		right : 0,
+		right :-20,
 		bubbleParent : false
 	});
 	var display = Ti.UI.createView({

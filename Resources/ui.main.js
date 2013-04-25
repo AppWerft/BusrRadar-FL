@@ -7,8 +7,8 @@ exports.create = function() {
 	mapwindow.add(mapwindow.map);
 	var masterwindow = Ti.UI.createWindow({
 	});
-	var clouds = require('modul/clouds').create();
-	var monitor = require('modul/monitor').create();
+	var clouds = require('modul/clouds.widget').create();
+	var monitor = require('modul/monitor.widget').create();
 	///  Main frame:
 	if (Ti.Platform.osname === 'ipad') {
 		masterwindow.add(clouds);

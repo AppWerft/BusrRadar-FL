@@ -3,7 +3,7 @@ exports.create = function() {
 		backgroundColor : '#000',
 		opacity : 0
 	});
-	var gaugeM = require('/modul/gauge');
+	var gaugeM = require('/modul/gauge.widget');
 	var tacho = new gaugeM;
 	self.gauge = tacho.getView();
 	self.add(self.gauge);

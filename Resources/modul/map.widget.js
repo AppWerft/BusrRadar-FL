@@ -11,7 +11,7 @@ exports.create = function() {
 		regionFit : true,
 		userLocation : true,
 	});
-	var alertM = require('modul/offlinealert');
+	var alertM = require('modul/offlinealert.widget');
 	var busmarkers = {};
 	var busroutes = {};
 
