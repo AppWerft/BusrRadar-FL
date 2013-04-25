@@ -1,0 +1,24 @@
+77 Kusau DK
+81 Kupfermühle Grenze
+78 Kupfermühle Abzweigung
+191 Wassersleben
+188 Wassersleben Kurhaus
+85 Am Lachsbach
+111 Ostseebadweg
+54 Glashütte
+169 Terrassenstraße
+13 Bau’er Landstraße
+72 Junkerhohlweg
+186 Walzenmühle
+108 Nordertor
+138 Schifffahrtsmuseum
+42 Fördebrücke
+199 Zentraler Omnibusbahnhof
+4 Angelburger Straße
+160  Südermarkt
+99 Munketoft
+15 Bahnhof
+94 Mühlendamm
+26	Campus FH
+28 Campus Mensa
+31 Campus Uni

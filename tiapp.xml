@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <property name="acs-oauth-secret-production" type="string">bXMLR5O6TUqVNGwRSNRaqRTsCZ8w0zns</property>
+    <property name="acs-oauth-key-production" type="string">PHqhRlfXuYTJOFPtxI95cnF22DPxcGa5</property>
+    <property name="acs-api-key-production" type="string">dA7ZJgrcQAZ6KcjPb1CMiUzVkQybYN8H</property>
+    <property name="acs-oauth-secret-development" type="string">2zbm3pm0JjIUnclluNUbY5qsWsQ9YOpk</property>
+    <property name="acs-oauth-key-development" type="string">dpCf2UdmI7UYG8Vwylf2qNgRHVyF8inp</property>
+    <property name="acs-api-key-development" type="string">TnoxY0Sc74M0vl3jT0iEH9PrdpnclWgI</property>
+    <id>de.appwerft.busradarfl</id>
+    <name>Busradar FL</name>
+    <version>1.0</version>
+    <publisher>rainerschleevoigt</publisher>
+    <url>http://</url>
+    <description>not specified</description>
+    <copyright>2013 by rainerschleevoigt</copyright>
+    <icon>appicon.png</icon>
+    <persistent-wifi>false</persistent-wifi>
+    <prerendered-icon>false</prerendered-icon>
+    <statusbar-style>default</statusbar-style>
+    <statusbar-hidden>true</statusbar-hidden>
+    <fullscreen>true</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>false</analytics>
+    <guid>569f418f-42d9-4ae9-995c-d4d086f5e679</guid>
+    <property name="ti.ui.defaultunit" type="string">system</property>
+    <iphone>
+        <orientations device="iphone">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
+        </orientations>
+        <orientations device="ipad">
+            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
+            <orientation>Ti.UI.PORTRAIT</orientation>
+            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
+        </orientations>
+    </iphone>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+    </modules>
+    <deployment-targets>
+        <target device="tizen">false</target>
+        <target device="blackberry">false</target>
+        <target device="android">true</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">false</target>
+    </deployment-targets>
+    <sdk-version>3.1.0.GA</sdk-version>
+</ti:app>
