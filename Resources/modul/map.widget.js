@@ -23,7 +23,7 @@ exports.create = function() {
 		text : 'BusRadar Flensburg',
 		color : '#ddd',
 		width : Ti.UI.FILL,
-		left : 20,
+		left : 10,
 		top : 8,
 		font : {
 			fontWeight : 'bold',
