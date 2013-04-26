@@ -46,11 +46,13 @@ exports.create = function() {
 	self.addEventListener('click', function(_e) {
 		Ti.App.fireEvent('app:hidenextstops');
 		if (_e.clicksource === 'pin' && _e.annotation.busdata) {
-			console.log('BUS clicked');
+			self.activeAnnotation = _e.annotation;
+			self.activeAnnotation.subtitle = '';
 			Ti.App.Model.setCurrentX(_e.annotation.busdata);
 		} else if (_e.clicksource === 'rightButton') {
 			Ti.App.fireEvent('app:showmonitor', {
-				endstop : _e.annotation.title
+				endstop : _e.annotation.title,
+				line : _e.annotation.busdata.line
 			});
 		} else {
 			Ti.App.Model.setCurrentX(null);
@@ -62,7 +64,20 @@ exports.create = function() {
 			self.removeAnnotation(busmarkers[i]);
 	});
 	self.add(require('modul/eieruhr.widget').create());
-
 	self.add(new alertM);
+	Ti.App.addEventListener('app:showdist2end', function(_e) {
+		var dist = _e.dist / 1000;
+		switch (true) {
+			case (dist>=10):
+				self.activeAnnotation.subtitle = dist.toFixed(0) + ' km';
+				break;
+			case (dist<10 && dist>=1):
+				self.activeAnnotation.subtitle = dist.toFixed(1) + ' km';
+				break;
+			default:
+				self.activeAnnotation.subtitle = (1000 * dist).toFixed(0) + ' m';
+				break;
+		}
+	});
 	return self;
 }

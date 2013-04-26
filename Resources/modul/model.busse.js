@@ -130,6 +130,7 @@ Model.prototype.getVehiclePos = function() {
 					Ti.App.fireEvent('app:shownextstops', {
 						stops : nextstops
 					});
+				//	console.log(nextstops[0]);
 					Ti.App.fireEvent('app:showdist2end', {
 						dist : nextstops[0].dist2end
 					});

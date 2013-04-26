@@ -4,7 +4,8 @@ exports.getProxies = function(_data) {
 	var stops = require('modul/stops').stops;
 	var routes = require('modul/routes').routes;
 	var route = undefined;
-	if (!currentrouteid || currentrouteid != _data.line.nr + _data.line.ziel) {
+	if (!currentrouteid || currentrouteid != _data.line.nr + _data.line.ziel || true) {
+		stopsdata = [];
 		console.log('NewRoute=============');
 		for (var i = 0; i < routes.length; i++) {
 			if (routes[i].ziel == _data.line.ziel && routes[i].nr == _data.line.nr) {
@@ -52,12 +53,13 @@ exports.getProxies = function(_data) {
 			}
 		}
 	}
-	for (var i = stopsdata.length - 1; i > 0; i--) {
+	for (var i = stopsdata.length - 1; i >= 0; i--) {
 		var stop = stopsdata[i];
 		if (!stop.passed) {
+			console.log(stop);
 			listofnextstations.unshift({
 				name : stop.name,
-				dist_stop2bus : stop.dist2end 
+				dist2end : stop.dist2end + require('modul/geo').getDist(_data.position.lat, _data.position.lon, stop.lat, stop.lon)
 			});
 
 		} else

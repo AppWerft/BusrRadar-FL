@@ -38,7 +38,7 @@ exports.create = function() {
 	} else {
 		masterwindow.addEventListener('click', function() {
 			masterwindow.remove(clouds);
-			masterwindow.remove(monitor);
+		//	masterwindow.remove(monitor);
 			masterwindow.close({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_DOWN
 			});
@@ -54,9 +54,11 @@ exports.create = function() {
 		Ti.App.addEventListener('app:hidemonitor', function(_e) {
 			//	masterwindow.add(clouds);
 			masterwindow.close({
-				transition : Ti.UI.iPhone.AnimationStyle.CURL_UP
+				transition : Ti.UI.iPhone.AnimationStyle.CURL_DOWN
 			});
-			masterwindow.remove(monitor);
+			setTimeout(function() {
+				masterwindow.remove(monitor);
+			}, 2000);
 
 		});
 		mapwindow.open();

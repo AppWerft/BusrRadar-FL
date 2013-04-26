@@ -58,7 +58,7 @@ exports.create = function() {
 		self.add(stopdisplays[i])
 	}
 	Ti.App.addEventListener('app:showmonitor', function(_e) {
-		titlelabel.setText(_e.endstop)
+		titlelabel.setText(_e.line + '  ' + _e.endstop)
 	});
 	return self;
 }
