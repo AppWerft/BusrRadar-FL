@@ -3,10 +3,12 @@ exports.create = function() {
 		backgroundColor : '#000',
 	});
 	var titlelabel = Ti.UI.createLabel({
-		text : 'Kruså / DK',
+		zIndex : 99,
 		top : 0,
+		left : 10,
 		color : 'yellow',
 		height : 60,
+		textAlign : 'left',
 		font : {
 			fontFamily : 'Belfast',
 			fontSize : 42
@@ -16,7 +18,7 @@ exports.create = function() {
 	var gaugeM = require('/modul/gauge.widget');
 	var tacho = new gaugeM;
 	self.gauge = tacho.getView();
-	self.gauge.setTop(50);
+	self.gauge.setTop(36);
 	self.add(self.gauge);
 	self.add(Ti.UI.createImageView({
 		image : '/images/strasse.png',
@@ -55,5 +57,8 @@ exports.create = function() {
 		});
 		self.add(stopdisplays[i])
 	}
+	Ti.App.addEventListener('app:showmonitor', function(_e) {
+		titlelabel.setText(_e.endstop)
+	});
 	return self;
 }

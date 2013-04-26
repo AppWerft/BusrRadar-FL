@@ -49,7 +49,9 @@ exports.create = function() {
 			console.log('BUS clicked');
 			Ti.App.Model.setCurrentX(_e.annotation.busdata);
 		} else if (_e.clicksource === 'rightButton') {
-			Ti.App.fireEvent('app:showmonitor');
+			Ti.App.fireEvent('app:showmonitor', {
+				endstop : _e.annotation.title
+			});
 		} else {
 			Ti.App.Model.setCurrentX(null);
 			Ti.App.fireEvent('app:hidemonitor');

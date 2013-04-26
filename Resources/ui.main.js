@@ -24,7 +24,6 @@ exports.create = function() {
 			splitwindow.setVisible(true);
 		});
 		Ti.App.addEventListener('app:hidemonitor', function(_e) {
-			//	masterwindow.add(clouds);
 			masterwindow.remove(monitor);
 			clouds.moveCloud();
 		});
