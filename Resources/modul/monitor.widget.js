@@ -3,10 +3,10 @@ exports.create = function() {
 		backgroundColor : '#000',
 	});
 	var titlelabel = Ti.UI.createLabel({
-		text : 'Zielhaltestelle',
+		text : 'Kruså / DK',
 		top : 0,
 		color : 'yellow',
-		height : 50,
+		height : 60,
 		font : {
 			fontFamily : 'Belfast',
 			fontSize : 42

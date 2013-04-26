@@ -18,7 +18,7 @@ exports.create = function() {
 	Ti.App.addEventListener('app:newposition', function(_e) {
 		var busse = _e.positions;
 		for (var i = 0; i < busse.length; i++) {
-			require('modul/map.bus').set(self, busmarkers, busroutes, busse[i]);
+			require('modul/bus.widget').set(self, busmarkers, busroutes, busse[i]);
 		}
 	});
 	var busstopmarker = [];
@@ -44,12 +44,15 @@ exports.create = function() {
 		}
 	});
 	self.addEventListener('click', function(_e) {
-		if (_e.clicksource === 'pin' &&  _e.annotation.busdata) {
+		Ti.App.fireEvent('app:hidenextstops');
+		if (_e.clicksource === 'pin' && _e.annotation.busdata) {
 			console.log('BUS clicked');
-			Ti.App.fireEvent('app:hidenextstops');
 			Ti.App.Model.setCurrentX(_e.annotation.busdata);
+		} else if (_e.clicksource === 'rightButton') {
+			Ti.App.fireEvent('app:showmonitor');
 		} else {
 			Ti.App.Model.setCurrentX(null);
+			Ti.App.fireEvent('app:hidemonitor');
 		}
 	});
 	Ti.App.addEventListener('resume', function() {

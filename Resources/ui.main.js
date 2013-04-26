@@ -23,6 +23,11 @@ exports.create = function() {
 		Ti.App.addEventListener('app:showmaster', function() {
 			splitwindow.setVisible(true);
 		});
+		Ti.App.addEventListener('app:hidemonitor', function(_e) {
+			//	masterwindow.add(clouds);
+			masterwindow.remove(monitor);
+			clouds.moveCloud();
+		});
 		splitwindow.addEventListener('visible', function(e) {
 			if (e.view == 'detail') {
 				//	e.button.title = "Archiv-Liste";
@@ -40,10 +45,18 @@ exports.create = function() {
 			});
 		})
 		Ti.App.addEventListener('app:showmonitor', function(_e) {
-			masterwindow.add(clouds);
-			masterwindow.remove(monitor);
+			//	masterwindow.add(clouds);
+			masterwindow.add(monitor);
 			clouds.moveCloud();
 			masterwindow.open({
+				transition : Ti.UI.iPhone.AnimationStyle.CURL_UP
+			});
+		});
+		Ti.App.addEventListener('app:hidemonitor', function(_e) {
+			//	masterwindow.add(clouds);
+			masterwindow.remove(monitor);
+			clouds.moveCloud();
+			masterwindow.close({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_UP
 			});
 		});

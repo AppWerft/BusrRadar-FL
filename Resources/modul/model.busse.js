@@ -29,9 +29,9 @@ Model.prototype.construct = function() {
 };
 
 Model.prototype.setCurrentX = function(_currentX) {
-	Ti.App.fireEvent('app:showmonitor', {
+/*	Ti.App.fireEvent('app:showmonitor', {
 		visible : (_currentX) ? true : false
-	});
+	});*/
 	Ti.App.Properties.removeProperty('currentX');
 	if (_currentX) {
 		Ti.App.Properties.setString('currentX', JSON.stringify(_currentX));
