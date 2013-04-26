@@ -124,7 +124,7 @@
 
 	</array><key>UIAppFonts</key>
 	<array>
-		<string>/ttf/DINBold.ttf</string>		<string>/ttf/DS-DIGIB.TTF</string>
+		<string>/ttf/DINBold.ttf</string>		<string>/ttf/DS-DIGIB.TTF</string><string>/ttf/belfast.ttf</string>
 	</array>
 
 </dict>
