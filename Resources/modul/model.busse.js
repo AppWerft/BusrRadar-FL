@@ -79,7 +79,7 @@ Model.prototype.calcPositionsandSpeeds = function(_currentpositions) {
 Model.prototype.getTitle = function(foo) {
 	var titles = {
 		'LABA' : 'Am Lachsbach',
-		'KRDK' : 'Kruså/DK',
+		'KRDK' : 'KrusÅ / DK',
 		'ZOB' : 'Zentraler Omnibusbahnhof',
 		'BHF' : 'Bahnhof',
 		'MHWE' : 'Marienhölzungsweg',

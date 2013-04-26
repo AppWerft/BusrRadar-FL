@@ -17,10 +17,15 @@ exports.set = function(map, busmarkers, busroutes, bus) {
 			busmarkers[bus.vehicleId] = busmarker;
 		});
 	} else {
-		busmarker.busdata = bus;
-		busmarker.setLatitude(bus.lat);
-		busmarker.setLongitude(bus.lon);
-		map.fireEvent('repaint');
+		Ti.App.Model.getImage(bus, function(image) {
+			busmarker.busdata = bus;
+			busmarker.setLatitude(bus.lat);
+			busmarker.setImage(image);
+			busmarker.setTitle(bus.title);
+			busmarker.setLongitude(bus.lon);
+			map.fireEvent('repaint');
+		});
+
 	}
 	var busroute = busroutes[bus.vehicleId];
 	if (!busroute) {
