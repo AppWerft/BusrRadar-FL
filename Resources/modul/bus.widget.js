@@ -1,5 +1,6 @@
 exports.set = function(map, busmarkers, busroutes, bus) {
 	var busmarker = busmarkers[bus.vehicleId];
+	var title = Ti.App.Model.getTitle(bus.ZielShort);
 	if (!busmarker) {
 		Ti.App.Model.getImage(bus, function(image) {
 			busmarker = Ti.Map.createAnnotation({
@@ -9,7 +10,7 @@ exports.set = function(map, busmarkers, busroutes, bus) {
 				subtitle : '   ', //bus.friendlyName,
 				leftButton : '/images/' + bus.line + '.jpg',
 				rightButton : '/images/tacho.png',
-				title : Ti.App.Model.getTitle(bus.ZielShort),
+				title : title,
 				busdata : bus
 			});
 
@@ -17,11 +18,12 @@ exports.set = function(map, busmarkers, busroutes, bus) {
 			busmarkers[bus.vehicleId] = busmarker;
 		});
 	} else {
+		console.log(title + ' ' + bus.line );
 		Ti.App.Model.getImage(bus, function(image) {
 			busmarker.busdata = bus;
 			busmarker.setLatitude(bus.lat);
 			busmarker.setImage(image);
-			busmarker.setTitle(bus.title);
+			busmarker.title = title;
 			busmarker.setLongitude(bus.lon);
 			map.fireEvent('repaint');
 		});

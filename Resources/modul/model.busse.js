@@ -87,10 +87,11 @@ Model.prototype.getTitle = function(foo) {
 		'CAUN' : 'Campusmensa/Uni',
 		'HEST' : 'Hesttoft',
 		'SÜND' : 'Sünderup',
+		'KUGR' : 'Kupfermühle Grenze',
 		'TRUP' : 'Tremmerup',
-		'SOLI' : 'Solitüde'
+		'SOLI' : 'Solitüde','TWPL':'Twedter Plack'
 	};
-	return titles[foo];
+	return titles[foo] || '';
 }
 
 Model.prototype.getVehiclePos = function() {
@@ -130,7 +131,7 @@ Model.prototype.getVehiclePos = function() {
 					Ti.App.fireEvent('app:shownextstops', {
 						stops : nextstops
 					});
-				//	console.log(nextstops[0]);
+					//	console.log(nextstops[0]);
 					Ti.App.fireEvent('app:showdist2end', {
 						dist : nextstops[0].dist2end
 					});

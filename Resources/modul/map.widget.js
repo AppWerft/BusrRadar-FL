@@ -10,7 +10,26 @@ exports.create = function() {
 		animate : true,
 		regionFit : true,
 		userLocation : true,
+		top : 0
 	});
+	self.add(Ti.UI.createView({
+		backgroundColor : 'black',
+		top : 0,
+		height : 50,
+		opacity : 0.8
+	}));
+	self.add(Ti.UI.createLabel({
+		top : 0,
+		text : 'BusRadar Flensburg',
+		color : '#ddd',
+		width : Ti.UI.FILL,
+		left : 20,
+		top : 8,
+		font : {
+			fontWeight : 'bold',
+			fontSize : 24
+		}
+	}))
 	var alertM = require('modul/offlinealert.widget');
 	var busmarkers = {};
 	var busroutes = {};

@@ -5,11 +5,9 @@ exports.create = function() {
 	});
 	mapwindow.map = require('modul/map.widget').create();
 	mapwindow.add(mapwindow.map);
-	var masterwindow = Ti.UI.createWindow({
-	});
+	var masterwindow = Ti.UI.createWindow();
 	var clouds = require('modul/clouds.widget').create();
 	var monitor = require('modul/monitor.widget').create();
-	///  Main frame:
 	if (Ti.Platform.osname === 'ipad') {
 		masterwindow.add(clouds);
 		masterwindow.add(monitor);
@@ -38,13 +36,11 @@ exports.create = function() {
 	} else {
 		masterwindow.addEventListener('click', function() {
 			masterwindow.remove(clouds);
-		//	masterwindow.remove(monitor);
 			masterwindow.close({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_DOWN
 			});
 		})
 		Ti.App.addEventListener('app:showmonitor', function(_e) {
-			//	masterwindow.add(clouds);
 			masterwindow.add(monitor);
 			clouds.moveCloud();
 			masterwindow.open({
@@ -52,7 +48,6 @@ exports.create = function() {
 			});
 		});
 		Ti.App.addEventListener('app:hidemonitor', function(_e) {
-			//	masterwindow.add(clouds);
 			masterwindow.close({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_DOWN
 			});
