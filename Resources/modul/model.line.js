@@ -57,9 +57,6 @@ exports.getProxies = function(_data) {
 		} else
 			break;
 	}
-	Ti.App.fireEvent('app:shownextstops', {
-		stops : listofnextstations
-	});
-
+	return listofnextstations;
 	//console.log(stopsdata);
 }

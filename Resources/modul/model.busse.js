@@ -116,7 +116,7 @@ Model.prototype.getVehiclePos = function() {
 					Ti.App.fireEvent('app:updateTacho', {
 						data : self.lastpositions[id]
 					});
-					require('modul/model.line').getProxies({
+					var nextstops = require('modul/model.line').getProxies({
 						position : {
 							lat : self.lastpositions[id].lat,
 							lon : self.lastpositions[id].lon
@@ -127,6 +127,9 @@ Model.prototype.getVehiclePos = function() {
 						},
 						id : id
 					});
+					Ti.App.fireEvent('app:shownextstops', {
+						stops : nextstops
+					});
 				}
 			} catch (E) {
 			}
@@ -135,7 +138,6 @@ Model.prototype.getVehiclePos = function() {
 	xhr.open('GET', 'http://www.busradar-flensburg.de/json/busradar/vehiclepos');
 	xhr.send(null);
 }
-
 Model.prototype.getStops = function(_callback) {
 	var file = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory + 'allstops.json');
 	var self = Ti.Network.createHTTPClient({

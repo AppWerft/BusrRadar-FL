@@ -2,9 +2,21 @@ exports.create = function() {
 	var self = Ti.UI.createView({
 		backgroundColor : '#000',
 	});
+	var titlelabel = Ti.UI.createLabel({
+		text : 'Zielhaltestelle',
+		top : 0,
+		color : 'yellow',
+		height : 50,
+		font : {
+			fontFamily : 'Belfast',
+			fontSize : 42
+		}
+	});
+	self.add(titlelabel);
 	var gaugeM = require('/modul/gauge.widget');
 	var tacho = new gaugeM;
 	self.gauge = tacho.getView();
+	self.gauge.setTop(50);
 	self.add(self.gauge);
 	self.add(Ti.UI.createImageView({
 		image : '/images/strasse.png',
