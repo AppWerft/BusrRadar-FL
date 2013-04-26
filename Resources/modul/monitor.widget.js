@@ -18,7 +18,7 @@ exports.create = function() {
 	var gaugeM = require('/modul/gauge.widget');
 	var tacho = new gaugeM;
 	self.gauge = tacho.getView();
-	self.gauge.setTop(36);
+	self.gauge.setTop(40);
 	self.add(self.gauge);
 	self.add(Ti.UI.createImageView({
 		image : '/images/strasse.png',

@@ -19,21 +19,27 @@ exports.getProxies = function(_data) {
 		for (var p = 0; p < route.length; p++) {
 			var stopid = route[p];
 			for (var s = 0; s < stops.length; s++) {
-				if (stops[s].id == stopid) {
-					stops[s].dist = require('modul/geo').getDist(_data.position.lat, _data.position.lon, stops[s].lat, stops[s].lon);
-					stops[s].olddist = undefined;
+				if (stops[s].id === stopid) {
+					stops[s].dist2next = (s > 0) ? Math.round(require('modul/geo').getDist(stops[s].lat, stops[s].lon, stops[s - 1].lat, stops[s - 1].lon)) : 0;
 					stops[s].passed = false;
+					stops[s].dist2end = 0;
 					stopsdata.push(stops[s]);
 				}
 			}
 		}
 		currentrouteid = _data.line.nr + _data.line.ziel;
 		Ti.Media.vibrate();
+		// calculation of distance to endstop:
+		var total = 0;
+		for (var s = stopsdata.length - 2; s >= 0; s--) {
+			total += stopsdata[s].dist2next;
+			stopsdata[s].dist2end = total;
+		}
 	}
 	var listofnextstations = [];
 	for (var i = 0; i < stopsdata.length; i++) {
 		var stop = stopsdata[i];
-		stop.dist = require('modul/geo').getDist(_data.position.lat, _data.position.lon, stop.lat, stop.lon);
+		stop.dist_stop2bus = require('modul/geo').getDist(_data.position.lat, _data.position.lon, stop.lat, stop.lon);
 		if (i < stopsdata.length - 1) {
 			// Calculation of current segment:
 			var bear1 = require('modul/geo').getBear(_data.position.lat, _data.position.lon, stop.lat, stop.lon);
@@ -51,7 +57,7 @@ exports.getProxies = function(_data) {
 		if (!stop.passed) {
 			listofnextstations.unshift({
 				name : stop.name,
-				dist : (stop.dist / 1000).toFixed(1)
+				dist_stop2bus : stop.dist2end 
 			});
 
 		} else

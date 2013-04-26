@@ -53,11 +53,11 @@ exports.create = function() {
 		});
 		Ti.App.addEventListener('app:hidemonitor', function(_e) {
 			//	masterwindow.add(clouds);
-			masterwindow.remove(monitor);
-			clouds.moveCloud();
 			masterwindow.close({
 				transition : Ti.UI.iPhone.AnimationStyle.CURL_UP
 			});
+			masterwindow.remove(monitor);
+
 		});
 		mapwindow.open();
 	}
