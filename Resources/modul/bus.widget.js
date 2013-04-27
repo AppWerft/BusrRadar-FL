@@ -18,9 +18,10 @@ exports.set = function(map, busmarkers, busroutes, bus) {
 			busmarkers[bus.vehicleId] = busmarker;
 		});
 	} else {
-		console.log(title + ' ' + bus.line );
+		console.log(title + ' ' + bus.line);
 		Ti.App.Model.getImage(bus, function(image) {
 			busmarker.busdata = bus;
+			busmarker.leftButton = '/images/' + bus.line + '.jpg';
 			busmarker.setLatitude(bus.lat);
 			busmarker.setImage(image);
 			busmarker.title = title;
