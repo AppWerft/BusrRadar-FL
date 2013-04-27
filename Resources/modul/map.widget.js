@@ -2,7 +2,7 @@ exports.create = function() {
 	var self = Ti.Map.createView({
 		mapType : Ti.Map.STANDARD_TYPE,
 		region : {
-			latitude : 54.801965,
+			latitude : 54.8019651,
 			longitude : 9.424734,
 			latitudeDelta : 0.04,
 			longitudeDelta : 0.04
@@ -19,7 +19,7 @@ exports.create = function() {
 		opacity : 0.8
 	}));
 	self.add(Ti.UI.createLabel({
-		top : 0,
+		top : 0,   
 		text : 'BusRadar Flensburg',
 		color : '#ddd',
 		width : Ti.UI.FILL,
