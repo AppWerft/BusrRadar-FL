@@ -32,7 +32,8 @@ exports.create = function() {
 		},
 		font : {
 			fontWeight : 'bold',
-			fontSize : 24
+			fontSize : 26,
+			fontFamily : 'DINBold'
 		}
 	}))
 	var alertM = require('modul/offlinealert.widget');

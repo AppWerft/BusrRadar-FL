@@ -41,7 +41,7 @@ exports.create = function() {
 
 	});
 	for (var i = 0; i < 7; i++) {
-		var h = 45 - (i * 3);
+		var h = 45 - (i * 3.1);
 		stopdisplays[i] = Ti.UI.createLabel({
 			bottom : 1.2 * h * i,
 			text : '',
@@ -52,7 +52,8 @@ exports.create = function() {
 			opacity : 1 - i * 0.1,
 			font : {
 				fontSize : h * 0.7 - (2 * i),
-				fontWeight : 'bold'
+				fontWeight : 'bold',
+				fontFamily : 'DINBold'
 			}
 		});
 		self.add(stopdisplays[i])
