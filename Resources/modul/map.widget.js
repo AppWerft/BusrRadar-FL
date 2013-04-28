@@ -25,7 +25,7 @@ exports.create = function() {
 		width : Ti.UI.FILL,
 		left : 10,
 		top : 8,
-		shadowColor : "#fff",
+		shadowColor : "#999",
 		shadowOffset : {
 			x : 1,
 			y : 1
