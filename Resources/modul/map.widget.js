@@ -19,12 +19,17 @@ exports.create = function() {
 		opacity : 0.8
 	}));
 	self.add(Ti.UI.createLabel({
-		top : 0,   
+		top : 0,
 		text : 'BusRadar Flensburg',
 		color : '#ddd',
 		width : Ti.UI.FILL,
 		left : 10,
 		top : 8,
+		shadowColor : "#fff",
+		shadowOffset : {
+			x : 1,
+			y : 1
+		},
 		font : {
 			fontWeight : 'bold',
 			fontSize : 24
